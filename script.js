@@ -1,12 +1,9 @@
-// Wait for DOM to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
 
-    // ===== SHARED FUNCTIONALITY (works on all pages) =====
-
-    // Array of entries (shared across pages)
+    //empty array of entries (shared across pages)
     let arrayOfEntries = [];
 
-    // Function to retrieve and log user from localStorage
+    //function to retrieve and log user from localStorage
     function getUserFromStorage(userName) {
         let user = JSON.parse(localStorage.getItem(userName));
         console.log(`Retrieved user '${userName}':`, user);
@@ -57,10 +54,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Journal Object Creator
-    function createEntry(name, date, entry, imageFile) {
+    function createEntry(name, date, location, entry, imageFile) {
         return {
             name: name,
             date: date,
+            location: location,
             entry: entry,
             imageFile: imageFile
         }
@@ -70,25 +68,10 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log('All localStorage keys:', Object.keys(localStorage));
 
 
-    // ===== INDEX.HTML SPECIFIC FUNCTIONALITY =====
+    // ===== INDEX.HTML FUNCTIONALITY ====
 
     const root = document.getElementsByClassName("root")[0];
 
-    // Only run this code if we're on a page that has the "root" element
-    if (root) {
-        const newButton = document.createElement("button");
-        newButton.textContent = "CLICK !! ME !!!";
-        root.appendChild(newButton);
-
-        let btn = document.querySelector("button");
-
-        btn.onclick = () => {
-            root.innerHTML = "";
-            const heading = document.createElement("h1");
-            heading.textContent = "TA-DA!";
-            root.appendChild(heading);
-        };
-    }
 
     // Form functionality (only if form exists)
     const userForm = document.getElementById('userForm');
@@ -105,11 +88,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
             console.log("Name:", name);
             console.log("Date:", date);
+            console.log("Location:", location);
             console.log("Entry:", entry);
             console.log("Image:", imageFile);
 
-            // Create and add entry to array
-            const newEntry = createEntry(name, date, location, entry, imageFile);
+            // Handle image file and create URL if exists
+            let imageUrl = null;
+            if (imageFile && imageFile.size > 0) {
+                imageUrl = URL.createObjectURL(imageFile);
+                console.log("Created image URL:", imageUrl);
+            }
+
+            // Create and add entry to array with correct parameter order
+            const newEntry = createEntry(name, date, location, entry, imageUrl);
             arrayOfEntries.push(newEntry);
             console.log('Entry added to array:', newEntry);
             console.log('Updated array:', arrayOfEntries);
@@ -122,19 +113,17 @@ document.addEventListener('DOMContentLoaded', function () {
                 date: date,
                 location: location,
                 entry: entry,
+                imageUrl: imageUrl,
                 timestamp: new Date().toISOString()
             });
 
             console.log('All entries for this user:', updatedEntries);
 
             // Handle image preview if file exists
-            if (imageFile && imageFile.size > 0) {
-                //creating a tempURL
-                const tempURL = URL.createObjectURL(imageFile);
-
+            if (imageUrl) {
                 const imagePreview = document.getElementById('imagePreview')
                 if (imagePreview) {
-                    imagePreview.src = tempURL;
+                    imagePreview.src = imageUrl;
                     imagePreview.style.display = 'block';
                 }
             }
@@ -142,11 +131,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
 
-    // ===== DASHBOARD.HTML SPECIFIC FUNCTIONALITY =====
+    // ===== DASHBOARD.HTML ====
 
     const nameEntry = document.getElementById("nameEntry");
 
-    // Only run this code if we're on a page that has the "nameEntry" element
+    //only run this code if we're on a page that has the "nameEntry" element
     if (nameEntry) {
         nameEntry.addEventListener('input', function (event) {
             const inputValue = event.target.value.trim();
@@ -172,12 +161,47 @@ document.addEventListener('DOMContentLoaded', function () {
                         <p>Total entries: ${userEntries.length}</p>
                         <button id='dashboardButton' onclick="showAllEntries('${inputValue}')">Show All Entries</button>`;
                     const dashboardButton = document.getElementById('nameEntry');
-                    dashboardButton.addEventListener('click', function () {
-                        console.log("entries")
-                        const entries = localStorage.getItem(inputValue);
-                        entriesContainer.appendChild(entries);
-                    })
+                    //adding the listener for when user enters their name in dashboard
 
+                    dashboardButton.addEventListener('change', function () {
+                        // Get ALL entries for this user using the collection method
+                        let allUserEntries = getAllUserEntries(inputValue);
+                        console.log('All entries for user:', allUserEntries);
+
+                        // Get the first element from the collection
+                        let entriesContainer = document.getElementsByClassName('userEntries')[0];
+
+                        if (entriesContainer) {
+                            // Clear previous content
+                            entriesContainer.innerHTML = '';
+
+                            if (allUserEntries.length > 0) {
+                                // Use spread operator to iterate through all entries
+                                [...allUserEntries].forEach((entry, index) => {
+                                    // Create a display element for each entry
+                                    const entryDiv = document.createElement('div');
+                                    entryDiv.className = 'single-entry';
+                                    entryDiv.style.border = '1px solid #ccc';
+                                    entryDiv.style.margin = '10px 0';
+                                    entryDiv.style.padding = '10px';
+
+                                    entryDiv.innerHTML = `
+                                        <h4>Entry ${index + 1}</h4>
+                                        <p><strong>Date:</strong> ${entry.date}</p>
+                                        <p><strong>Location:</strong> ${entry.location}</p>
+                                        <p><strong>Entry:</strong> ${entry.entry}</p>
+                                        ${entry.imageUrl ? `<img src="${entry.imageUrl}" alt="Entry image" style="max-width: 200px; display: block; margin-top: 10px;">` : ''}
+                                        <small><strong>Added:</strong> ${entry.timestamp ? new Date(entry.timestamp).toLocaleString() : 'Unknown'}</small>
+                                    `;
+                                    entriesContainer.appendChild(entryDiv);
+                                });
+                            } else {
+                                const noEntriesDiv = document.createElement('div');
+                                noEntriesDiv.textContent = `No entries found for user: ${inputValue}`;
+                                entriesContainer.appendChild(noEntriesDiv);
+                            }
+                        }
+                    })
                     entriesContainer.appendChild(summary);
                 } else {
                     const noEntries = document.createElement("div");
