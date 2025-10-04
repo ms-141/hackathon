@@ -1,0 +1,16 @@
+.superBox {
+    background-color: blueviolet;
+    display: flex;
+    flex-direction: row;
+    min-height: 10vh;
+}
+
+.react {
+    background-color: aquamarine;
+    width: 75vw;
+}
+
+.sideBar {
+    background-color: blanchedalmond;
+    width: 25vw;
+}
