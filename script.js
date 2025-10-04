@@ -53,5 +53,7 @@ document.getElementById('imageUploadForm').addEventListener('submit', function (
         URL.revokeObjectURL(tempURL);
     };
 
+    
+
 })
 
