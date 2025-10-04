@@ -1,0 +1,9 @@
+body {
+    background-color: rgb(223, 201, 144);
+}
+
+div {
+    outline-style: solid;
+    outline-width: 2px;
+    outline-color: black;
+}

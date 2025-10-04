@@ -9,29 +9,28 @@
 <body>
     <div class="superBox">
         <div class="root">
-
+            <button><a href="./index.html">HOME</a></button>
+            <button><a href="./dashboard.html">DASHBOARD</a></button>
         </div>
         <div class="sideBar">
             <!-- form for Journal entry -->
             <form id="userForm" action="./script.js">
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name"><br><br>
+                <label for="user">Name:</label>
+                <input type="text" id="user" name="user"><br><br>
                 <label for="date">Date:</label>
                 <input type="date" id="date" name="date"><br><br>
-                <label for="entry"></label>
-                <input type="entry" id="entry" name="entry"><br><br> 
-                <input type="submit" value="Submit">
-            </form>
-
-            <!-- Form for file upload -->
-            <form id="imageUploadForm" action="./script.js" method="post" enctype="multipart/form-data">
+                <label for="location" id="location" name="location">Location:</label>
+                <input type="text" id="location" name="location"><br><br>
+                <label for="entry">Entry:</label>
+                <input type="text" id="entry" name="entry"><br><br> 
                 <label for="imageUpload">Upload an image:</label><br>
                 <input type="file" id="imageUpload" name="myImage" accept="image/*"><br><br>
-                <input type="submit" value="Submit Image">
+                <input type="submit" value="Submit">
             </form>
 
             <!-- image preview -->
             <img id="imagePreview" src="#" alt="Preview of uploaded image">
+
         </div>
     </div>
         
