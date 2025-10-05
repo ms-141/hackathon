@@ -1,0 +1,197 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  font-size: 14px;
+}
+.v22_67 {
+  width: 100%;
+  height: 1024px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v25_287 {
+  width: 100%;
+  height: 1024px;
+  background: rgba(255,255,255,1);
+  opacity: 1;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  overflow: hidden;
+}
+.v25_288 {
+  width: 100%;
+  height: 127px;
+  background: url("../images/v25_288.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 106px;
+  left: 10px;
+  overflow: hidden;
+}
+.v25_289 {
+  /* subheader */
+  width: 98.85%;
+  height: 127px;
+  background: rgba(100,69,54,1);
+  opacity: 1;
+  position: absolute;
+  top: -28px;
+  left: 0px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  overflow: hidden;
+}
+.v25_339 {
+  /* sort by button */
+  width: 281px;
+  height: 46px;
+  background: rgba(100,69,54,0.75);
+  padding: 10px 10px;
+  margin: 10px;
+  opacity: 1;
+  position: absolute;
+  top: 249px;
+  left: 10px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  overflow: hidden;
+}
+.v25_291 {
+  width: 249px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 1px;
+  left: 16px;
+  font-family: Bell MT;
+  font-weight: Regular;
+  font-size: 36px;
+  opacity: 1;
+  text-align: left;
+}
+.v25_292 {
+  width: 100%;
+  height: 686px;
+  background: rgba(18,69,89,0);
+  opacity: 1;
+  position: absolute;
+  top: 311px;
+  left: 10px;
+  border: 5px solid rgba(18,69,89,1);
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  overflow: hidden;
+}
+.header {
+  width: 98.95%;
+  height: 139px;
+  background: rgba(226,212,183,1);
+  opacity: 1;
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  overflow: hidden;
+}
+.v25_296 {
+  width: 561px;
+  color: rgba(0,0,0,1);
+  position: absolute;
+  top: 16px;
+  left: 439px;
+  font-family: Bell MT;
+  font-weight: Regular;
+  font-size: 96px;
+  opacity: 1;
+  text-align: left;
+}
+.v25_305 {
+  /* homepage button */
+  width: 150px;
+  height: 29px;
+  background: rgba(100,69,54,1);
+  opacity: 1;
+  position: absolute;
+  top: 163px;
+  left: 469px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+}
+.v25_306 {
+  /* homepage text */
+  width: 124px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 0px;
+  left: 26px;
+  font-family: Bell MT;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
+/* .v25_309 {
+  width: 187px;
+  height: 29px;
+  background: url("../images/v25_309.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 1;
+  position: absolute;
+  top: 191px;
+  left: 784px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+} */
+.v25_310 {
+  /* create an entry button */
+  width: 200px;
+  height: 29px;
+  background: rgba(100,69,54,1);
+  opacity: 1;
+  position: absolute;
+  top: 163px;
+  left: 820px;
+  border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  overflow: hidden;
+}
+.v25_311 {
+  /* create an entry text */
+  width: 177px;
+  color: rgba(255,255,255,1);
+  position: absolute;
+  top: 0px;
+  left: 5px;
+  font-family: Inter;
+  font-weight: Regular;
+  font-size: 24px;
+  opacity: 1;
+  text-align: left;
+}
