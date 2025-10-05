@@ -102,9 +102,9 @@ document.addEventListener('DOMContentLoaded', function () {
             function base64(imageFile) {
                 return new Promise((resolve, reject) => {
                     let reader = new FileReader();
-                    reader.onload = () => resolve(reader.result);
-                    reader.onerror = () => reject(new Error)
                     reader.readAsDataURL(imageFile)
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error("Failed to read image"))
                 });
             }
             // Create and add entry to array with correct parameter order
