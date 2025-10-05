@@ -1,36 +1,74 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
-        <link href="./css/your_entries.css" rel="stylesheet" />
-        <title>Document</title>
-    </head>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Inter&display=swap" rel="stylesheet" />
+    <link href="./css/your_entries.css" rel="stylesheet" />
+    <title>Your Entries</title>
+  </head>
+
   <body>
+
+
+    <!-- Navigation -->
+    <div id="nav">
+      <button><a href="./index.html">HOME</a></button>
+    </div>
+
+    <!-- User Info -->
+    <div class="userInfo">
+      <label for="nameEntry">Enter name:</label>
+      <input type="text" id="nameEntry" />
+    </div>
+
+    <!-- Filter section -->
+    <div class="filterContainer">
+      <div id="filterDiv">
+        <label for="filter">Filter by:</label>
+        <select id="filter">
+          <option value="button_text">Sort by: </option>
+          <option value="location">Location</option>
+          <option value="date">Date</option>
+        </select>
+      </div>
+    </div>
+
+    <!-- User Entries -->
+    <div class="userEntries"></div>
+
+    <!-- Clear Button -->
+    <button id="clearButton"><a href="../home_page/homepage/index.html">Clear Data</a></button>
+
+    <!-- Script -->
+    <script src="../create_entry/script.js"></script>
+
+    <!-- Visual/Stylistic Layout (Figma elements) -->
     <div class="v22_67">
       <div class="v25_287">
         <div class="v25_288">
           <div class="v25_289"></div>
         </div>
+
         <div class="v25_339">
           <span class="v25_291">Sort by:</span>
         </div>
-        <div class="v25_292"></div>
-    
-    </div></div>
+
+      </div>
     </div>
+
     <div class="v25_292"></div>
     <div class="header"></div>
     <span class="v25_296">Your Entries</span>
-    
-</div><div class="v25_305">
-    <a href="../home_page/homepage/index.html"> <span class="v25_306"> Homepage </span></a>
-</div>
-    
-<div class="v25_310">
-    <a href="../create_entry/create_entry.html"> <span class="v25_311"> Create Entry </span></a>
-</div>
 
-</div>
-</div>
-</body>
+    <div class="v25_305">
+      <a href="../home_page/homepage/index.html">
+        <span class="v25_306">Homepage</span>
+      </a>
+    </div>
+
+    <div class="v25_310">
+      <a href="../create_entry/create_entry.html">
+        <span class="v25_311">Create Entry</span>
+      </a>
+    </div>
+  </body>
 </html>
