@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Form functionality (only if form exists)
     const userForm = document.getElementById('userForm');
     if (userForm) {
-        userForm.addEventListener('submit',async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
+        userForm.addEventListener('submit', async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
             event.preventDefault(); // prevent default form submission
 
             const form = new FormData(event.target);
@@ -98,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
             //     imageUrl = URL.createObjectURL(imageFile);
             //     console.log("Created image URL:", imageUrl);
             // }
+<<<<<<< HEAD
             // Source for converting a file to base 64: https://utahedu.devcamp.com/dissecting-react-js/guide/converting-image-files-base64-strings
             function base64(imageFile) {
                 return new Promise((resolve, reject) => {
@@ -105,6 +106,15 @@ document.addEventListener('DOMContentLoaded', function () {
                     reader.onload = () => resolve(reader.result); // when file is successfully read
                     reader.onerror = () => reject(new Error) // failed to read
                     reader.readAsDataURL(imageFile) // reads file and converts to base 64
+=======
+
+            function base64(imageFile) {
+                return new Promise((resolve, reject) => {
+                    let reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error)
+                    reader.readAsDataURL(imageFile)
+>>>>>>> 8932b4ede0b00f122f3ebf5966f142cb4e2509d3
                 });
             }
             // Create and add entry to array with correct parameter order
@@ -196,10 +206,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 [...allUserEntries].forEach((entry, index) => {
                                     // Create a display element for each entry
                                     const entryDiv = document.createElement('div');
-                                    entryDiv.className = 'single-entry';
-                                    entryDiv.style.border = '1px solid #ccc';
-                                    entryDiv.style.margin = '10px 0';
-                                    entryDiv.style.padding = '10px';
+                                    // entryDiv.className = 'single-entry';
+                                    // entryDiv.style.border = '1px solid #ccc';
+                                    // entryDiv.style.margin = '10px 0';
+                                    entryDiv.style.padding = '20px';
 
                                     entryDiv.innerHTML = `
                                         <h4>Entry ${index + 1}</h4>
@@ -228,14 +238,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Global function to show all entries (can be called from button)
-    window.showAllEntries = function (userName) {
-        const entriesContainer = document.getElementsByClassName("userEntries")[0];
-        if (entriesContainer) {
-            entriesContainer.innerHTML = '';
-            displayUserEntries(userName, entriesContainer.id || 'userEntries');
-        }
-    }
+    // ===== CLEAR DATA ======
+    const clearButton = document.getElementById('clearButton');
+    clearButton.addEventListener('click', function () {
+        localStorage.clear();
+    })
+
+
 
     // Initial logging
     console.log('Initial array of entries:', arrayOfEntries);
