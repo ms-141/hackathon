@@ -234,14 +234,7 @@ document.addEventListener('DOMContentLoaded', function () {
         localStorage.clear();
     })
 
-    // // Global function to show all entries (can be called from button)
-    // window.showAllEntries = function (userName) {
-    //     const entriesContainer = document.getElementsByClassName("userEntries")[0];
-    //     if (entriesContainer) {
-    //         entriesContainer.innerHTML = '';
-    //         displayUserEntries(userName, entriesContainer.id || 'userEntries');
-    //     }
-    // }
+
 
     // Initial logging
     console.log('Initial array of entries:', arrayOfEntries);
