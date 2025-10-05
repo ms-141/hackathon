@@ -52,23 +52,6 @@ body {
   border-bottom-right-radius: 28px;
   overflow: hidden;
 }
-.v25_339 {
-  /* sort by button */
-  width: 281px;
-  height: 46px;
-  background: rgba(100,69,54,0.75);
-  padding: 10px 10px;
-  margin: 10px;
-  opacity: 1;
-  position: absolute;
-  top: 249px;
-  left: 10px;
-  border-top-left-radius: 28px;
-  border-top-right-radius: 28px;
-  border-bottom-left-radius: 28px;
-  border-bottom-right-radius: 28px;
-  overflow: hidden;
-}
 .v25_291 {
   width: 249px;
   color: rgba(0,0,0,1);
@@ -82,9 +65,8 @@ body {
   text-align: left;
 }
 .v25_292 {
-  width: 100%;
+  width: 99%;
   height: 686px;
-  background: rgba(18,69,89,0);
   opacity: 1;
   position: absolute;
   top: 311px;
@@ -195,3 +177,89 @@ body {
   opacity: 1;
   text-align: left;
 }
+
+
+
+
+
+body {
+    background-color: rgb(255, 235, 205);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    align-items: center;
+
+}
+
+.userInfo {
+  position: relative;
+  font-size: 25px;
+  font-family: Bell MT;
+  top: 155px;
+  left: -30px;
+  z-index: 1000; /* higher than .v22_67 or .v25_287 */
+  padding: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.userEntries {
+    position: absolute;
+    font-size: 15px;
+    top: 290px;
+    left: 605px;
+    padding: 30px;
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clearButton {
+  position: absolute;
+  top: 249px;
+  width: 80px;
+  left: 1410px;  
+  margin: 30px;
+  z-index: 1000;
+  background-color: rgb(159, 173, 230);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+#filter {
+  background: rgba(100,69,54,0.75);
+  padding: 10px 10px;
+  margin: 10px;
+  opacity: 1;
+  font-size: 28px;
+  font-family: Bell MT;
+  border-top-left-radius: 28px;
+  border-top-right-radius: 28px;
+  border-bottom-left-radius: 28px;
+  border-bottom-right-radius: 28px;
+  overflow: hidden;
+
+  position: relative;
+  top: 120px;
+  left: -670px;
+  width: 220px;
+  z-index: 1000;
+}
+
+
+
+/* .filterContainer {
+  position: relative;
+  font-size: 18px;
+  top: 110px;
+  left: -600px;
+  display: flex;
+  z-index: 1000;
+  justify-content: center;
+  flex-direction: column;
+} */
