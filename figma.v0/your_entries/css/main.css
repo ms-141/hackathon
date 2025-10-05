@@ -73,7 +73,7 @@ body {
   width: 249px;
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 1px;
+  top: 3px;
   left: 16px;
   font-family: Bell MT;
   font-weight: Regular;
@@ -189,7 +189,7 @@ body {
   position: absolute;
   top: 0px;
   left: 5px;
-  font-family: Inter;
+  font-family: Bell MT;
   font-weight: Regular;
   font-size: 24px;
   opacity: 1;

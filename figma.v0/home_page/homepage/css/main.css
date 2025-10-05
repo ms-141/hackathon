@@ -46,9 +46,9 @@ body {
   width: 807px;
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 12px;
+  top: 17px;
   left: 320px;
-  font-family: Inter;
+  font-family: Bell MT;
   font-weight: Regular;
   font-size: 96px;
   opacity: 1;
@@ -60,7 +60,7 @@ body {
   position: absolute;
   top: 266px;
   left: 4px;
-  font-family: Inter;
+  font-family: Bell MT;
   font-weight: Regular;
   font-size: 36px;
   opacity: 1;
@@ -86,7 +86,7 @@ body {
   position: absolute;
   top: 0px;
   left: 13px;
-  font-family: Inter;
+  font-family: Bell MT;
   font-weight: Regular;
   font-size: 24px;
   opacity: 1;
@@ -114,7 +114,7 @@ body {
   position: absolute;
   top: 0px;
   left: 14px;
-  font-family: Inter;
+  font-family: Bell MT;
   font-weight: Regular;
   font-size: 24px;
   opacity: 1;
@@ -160,7 +160,7 @@ body {
   position: absolute;
   top: 0px;
   left: 19px;
-  font-family: Inter;
+  font-family: Bell MT;
   font-weight: Regular;
   font-size: 24px;
   opacity: 1;

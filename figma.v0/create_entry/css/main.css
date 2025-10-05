@@ -139,7 +139,7 @@ body {
   opacity: 1;
   position: absolute;
   top: 252px;
-  left: 1248px;
+  left: 1217px;
   border-top-left-radius: 17px;
   border-top-right-radius: 17px;
   border-bottom-left-radius: 17px;
@@ -152,7 +152,7 @@ body {
   color: rgba(0,0,0,1);
   position: absolute;
   top: 10px;
-  left: 51px;
+  left: 10px;
   font-family: Bell MT;
   font-weight: Regular;
   font-size: 25px;
@@ -221,7 +221,7 @@ body {
   opacity: 1;
   position: absolute;
   top: 329px;
-  left: 518px;
+  left: 496px;
   border: 5px solid rgba(18,69,89,1);
   border-top-left-radius: 30px;
   border-top-right-radius: 30px;
