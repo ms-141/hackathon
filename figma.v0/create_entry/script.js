@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-            // Store in user's collection (new method)
+            //Store in user's collection 
             const updatedEntries = addEntryToUser(name, {
                 date: date,
                 location: location,
@@ -144,11 +144,14 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
 
+            //success message
             const successMessageContainer = document.getElementById('successMessageContainer');
-            const successMessage = document.createElement('p')
-            successMessage.textContent = 'Successful submission!'
-            successMessage.style.color = 'green';
-            successMessageContainer.appendChild(successMessage);
+            if (successMessageContainer) {
+                const successMessage = document.createElement('p')
+                successMessage.textContent = 'Successful submission!'
+                successMessage.style.color = 'green';
+                successMessageContainer.appendChild(successMessage);
+            }
 
         });
     }
@@ -205,7 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
                                     const entryDiv = document.createElement('div');
                                     entryDiv.className = 'single-entry';
                                     entryDiv.style.border = '1px solid #00000000';
-                                    // entryDiv.style.margin = '10px 0';
                                     entryDiv.style.padding = '20px';
 
                                     entryDiv.innerHTML = `
@@ -233,15 +235,59 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
             }
         });
+        // Filter functionality (only add listener once)
+        const filter = document.getElementById('filter');
+        if (filter) {
+            filter.addEventListener("change", function () {
+                const selectedOption = this.value;
+                const inputValue = nameEntry.value.trim();
+
+                if (inputValue && selectedOption) {
+                    let allUserEntries = getAllUserEntries(inputValue);
+                    let entriesContainer = document.getElementsByClassName('userEntries')[0];
+
+                    if (entriesContainer && allUserEntries.length > 0) {
+                        // Sort entries based on selection
+                        if (selectedOption === 'location') {
+                            allUserEntries.sort((a, b) => a.location.localeCompare(b.location));
+                        }
+                        if (selectedOption === 'date') {
+                            allUserEntries.sort((a, b) => new Date(a.date) - new Date(b.date));
+                        }
+
+                        // Clear and redisplay sorted entries
+                        entriesContainer.innerHTML = '';
+                        allUserEntries.forEach((entry, index) => {
+                            const entryDiv = document.createElement('div');
+                            entryDiv.className = 'single-entry';
+                            entryDiv.style.border = '1px solid #ccc';
+                            entryDiv.style.padding = '20px';
+                            entryDiv.style.margin = '10px 0';
+
+                            entryDiv.innerHTML = `
+                                <h4>Entry ${index + 1} (Sorted by ${selectedOption})</h4>
+                                <p><strong>Date:</strong> ${entry.date}</p>
+                                <p><strong>Location:</strong> ${entry.location}</p>
+                                <p><strong>Entry:</strong> ${entry.entry}</p>
+                                ${entry.imageUrl ? `<img src="${entry.imageUrl}" alt="Entry image" style="max-width: 200px; display: block; margin-top: 10px;">` : ''}
+                                <small><strong>Added:</strong> ${entry.timestamp ? new Date(entry.timestamp).toLocaleString() : 'Unknown'}</small>
+                            `;
+                            entriesContainer.appendChild(entryDiv);
+                        });
+                    }
+                }
+            });
+        }
     }
 
     // ===== CLEAR DATA ======
     const clearButton = document.getElementById('clearButton');
-    clearButton.addEventListener('click', function () {
-        localStorage.clear();
-    })
-
-
+    if (clearButton) {
+        clearButton.addEventListener('click', function () {
+            localStorage.clear();
+            console.log('LocalStorage cleared');
+        });
+    }
 
     // Initial logging
     console.log('Initial array of entries:', arrayOfEntries);

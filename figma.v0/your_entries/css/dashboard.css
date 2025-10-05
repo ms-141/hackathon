@@ -1,8 +1,10 @@
 body {
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(255, 235, 205);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    align-items: center;
+
 }
 
 #nav {
@@ -23,16 +25,34 @@ body {
 
 .userEntries {
     padding: 30px;
-    background-color: blanchedalmond;
+    background-color: rgb(255, 235, 205);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #clearButton {
+    margin: 30px;
+    background-color: rgb(159, 173, 230);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#filterDiv {
     padding: 30px;
     background-color: blanchedalmond;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#filter {
+    width: 220px;
+}
+
+#filterContainer {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
