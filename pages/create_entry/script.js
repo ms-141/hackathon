@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     //empty array of entries (shared across pages)
     let arrayOfEntries = [];//creating an array of objects to store all entries
-
+    
     //function to retrieve and log user from localStorage
     function getUserFromStorage(userName) {
         let user = JSON.parse(localStorage.getItem(userName));//parse over localStorage searching for a user

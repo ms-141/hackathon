@@ -138,7 +138,7 @@ body {
   margin: 10px;
   opacity: 1;
   position: absolute;
-  top: 252px;
+  top: 250px;
   left: 1217px;
   border-top-left-radius: 17px;
   border-top-right-radius: 17px;
@@ -149,13 +149,13 @@ body {
 .v27_60 {
   /* prompts text */
   width: 89px;
-  color: rgba(0,0,0,1);
+  color: rgb(255, 255, 255);
   position: absolute;
-  top: 10px;
+  top: 12px;
   left: 10px;
   font-family: Bell MT;
   font-weight: Regular;
-  font-size: 25px;
+  font-size: 20px;
   opacity: 1;
   text-align: left;
 }
@@ -291,10 +291,10 @@ body {
 }
 
 .sideBar {
-    padding: 30px;
+    padding: 20px;
     position: relative;
     top: 220px;       /* move it down (increase this value to go lower) */
-    left: -568px;      /* optional: move it horizontally */
+    left: -545px;      /* optional: move it horizontally */
     z-index: 1000; 
     display: flex;
     justify-content: center;
@@ -309,13 +309,13 @@ body {
     gap: 15px;                /* space between each field */
     padding: 20px;
     border-radius: 10px;
-    width: 400px;             /* make form wider */
+    width: 350px;             /* make form wider */
 }
 
 #entry {
   position: absolute;
   top: 58px;
-  left: 1056px;
+  left: 1034px;
   border-radius: 13px;
   width: 922px;   /* makes it wider */
   height: 676px;  /* optional — makes it taller */
