@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Form functionality (only if form exists)
     const userForm = document.getElementById('userForm');
     if (userForm) {
-        userForm.addEventListener('submit',async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
+        userForm.addEventListener('submit', async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
             event.preventDefault(); // prevent default form submission
 
             const form = new FormData(event.target);
@@ -98,22 +98,22 @@ document.addEventListener('DOMContentLoaded', function () {
             //     imageUrl = URL.createObjectURL(imageFile);
             //     console.log("Created image URL:", imageUrl);
             // }
-            
+
             function base64(imageFile) {
                 return new Promise((resolve, reject) => {
                     let reader = new FileReader();
                     reader.onload = () => resolve(reader.result);
-                    reader.onerror = () => reject(new Error("Failed to read image"))
+                    reader.onerror = () => reject(new Error)
                     reader.readAsDataURL(imageFile)
                 });
             }
             // Create and add entry to array with correct parameter order
             let imageDataUrl = null;
             if (imageFile && imageFile.size > 0) {
-                try {
-                    imageDataUrl = await base64(imageFile);
+                try { // protected zone to run code so crashes dont affect entire program
+                    imageDataUrl = await base64(imageFile); // waits for promise to resolve and pauses async function
                 } catch (error) {
-                    console.error(error);
+                    console.error(error); // error needs to go somewhere
                 }
             }
 
@@ -130,19 +130,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: location,
                 entry: entry,
                 imageUrl: imageDataUrl,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString() //turns date into string format
             });
 
             console.log('All entries for this user:', updatedEntries);
 
             // Handle image preview if file exists
-            if (imageUrl) {
+            if (imageDataUrl) {
                 const imagePreview = document.getElementById('imagePreview')
                 if (imagePreview) {
-                    imagePreview.src = imageUrl;
+                    imagePreview.src = imageDataUrl; // Use imageDataUrl instead of imageUrl
                     imagePreview.style.display = 'block';
                 }
             }
+
+            const successMessageContainer = document.getElementById('successMessageContainer');
+            const successMessage = document.createElement('p')
+            successMessage.textContent = 'Successful submission!'
+            successMessage.style.color = 'green';
+            successMessageContainer.appendChild(successMessage);
+
         });
     }
 
@@ -192,14 +199,14 @@ document.addEventListener('DOMContentLoaded', function () {
                             entriesContainer.innerHTML = '';
 
                             if (allUserEntries.length > 0) {
-                                // Use spread operator to iterate through all entries
+                                // spread operator to iterate through all entries in the array
                                 [...allUserEntries].forEach((entry, index) => {
                                     // Create a display element for each entry
                                     const entryDiv = document.createElement('div');
                                     entryDiv.className = 'single-entry';
-                                    entryDiv.style.border = '1px solid #ccc';
-                                    entryDiv.style.margin = '10px 0';
-                                    entryDiv.style.padding = '10px';
+                                    entryDiv.style.border = '1px solid #00000000';
+                                    // entryDiv.style.margin = '10px 0';
+                                    entryDiv.style.padding = '20px';
 
                                     entryDiv.innerHTML = `
                                         <h4>Entry ${index + 1}</h4>
@@ -228,14 +235,13 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Global function to show all entries (can be called from button)
-    window.showAllEntries = function (userName) {
-        const entriesContainer = document.getElementsByClassName("userEntries")[0];
-        if (entriesContainer) {
-            entriesContainer.innerHTML = '';
-            displayUserEntries(userName, entriesContainer.id || 'userEntries');
-        }
-    }
+    // ===== CLEAR DATA ======
+    const clearButton = document.getElementById('clearButton');
+    clearButton.addEventListener('click', function () {
+        localStorage.clear();
+    })
+
+
 
     // Initial logging
     console.log('Initial array of entries:', arrayOfEntries);
