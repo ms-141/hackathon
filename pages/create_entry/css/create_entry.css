@@ -320,3 +320,21 @@ body {
   width: 922px;   /* makes it wider */
   height: 676px;  /* optional — makes it taller */
 }
+ /* Frame for the image */
+  #imagePreviewContainer {
+    width: 100px;  /* Set your desired width */
+    height: 100px; /* Set your desired height */
+    border: 2px solid #ccc; /* Optional frame */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden; /* Crop any excess image */
+    margin-top: 10px;
+  }
+
+  /* Make the image fit the container */
+  #imagePreview {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* "cover" crops to fill, "contain" fits entirely */
+  }
