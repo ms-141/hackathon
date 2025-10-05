@@ -1,13 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     //empty array of entries (shared across pages)
     let arrayOfEntries = [];//creating an array of objects to store all entries
-    
-    //function to retrieve and log user from localStorage
-    function getUserFromStorage(userName) {
-        let user = JSON.parse(localStorage.getItem(userName));//parse over localStorage searching for a user
-        console.log('Retrieved user', userName, user); //template literals for debugging
-        return user;
-    }
 
     // get all entries for a specific user
     function getAllUserEntries(userName) {
@@ -69,9 +62,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
     // ===== INDEX.HTML FUNCTIONALITY ====
-
-    const root = document.getElementsByClassName("root")[0];
-
 
     // Form functionality (only if form exists)
     const userForm = document.getElementById('userForm');
