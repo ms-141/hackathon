@@ -1,28 +1,27 @@
 document.addEventListener('DOMContentLoaded', function () {
-
     //empty array of entries (shared across pages)
-    let arrayOfEntries = [];
+    let arrayOfEntries = [];//creating an array of objects to store all entries
 
     //function to retrieve and log user from localStorage
     function getUserFromStorage(userName) {
-        let user = JSON.parse(localStorage.getItem(userName));
-        console.log(`Retrieved user '${userName}':`, user);
+        let user = JSON.parse(localStorage.getItem(userName));//parse over localStorage searching for a user
+        console.log('Retrieved user', userName, user); //template literals for debugging
         return user;
     }
 
-    // Function to get all entries for a specific user
+    // get all entries for a specific user
     function getAllUserEntries(userName) {
-        let userEntries = JSON.parse(localStorage.getItem(`${userName}_entries`)) || [];
-        console.log(`All entries for '${userName}':`, userEntries);
+        let userEntries = JSON.parse(localStorage.getItem(userName)) || [];//search 
+        console.log(userName, ' ', userEntries);
         return userEntries;
     }
 
     // Function to add entry to user's collection
     function addEntryToUser(userName, entryData) {
-        let userEntries = getAllUserEntries(userName);
+        let userEntries = getAllUserEntries(userName); //collect entries
         userEntries.push(entryData);
-        localStorage.setItem(`${userName}_entries`, JSON.stringify(userEntries));
-        console.log(`Added entry for '${userName}':`, entryData);
+        localStorage.setItem(userName, JSON.stringify(userEntries));//update memory with updated all entries
+        console.log(userName, entryData);
         return userEntries;
     }
 
@@ -32,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (!container) return;
 
         const userEntries = getAllUserEntries(userName);
-        container.innerHTML = ''; // Clear previous content
+        container.innerHTML = ''; //Clear previous content
 
         if (userEntries.length === 0) {
             container.innerHTML = '<p>No entries found for this user.</p>';
@@ -42,14 +41,15 @@ document.addEventListener('DOMContentLoaded', function () {
         userEntries.forEach((entry, index) => {
             const entryDiv = document.createElement('div');
             entryDiv.className = 'user-entry';
+            //creating new html code to create nodes with entries from user 
             entryDiv.innerHTML = `
-                <h3>Entry ${index + 1}</h3>
+                <h3>Entry ${index + 1}</h3> 
                 <p><strong>Date:</strong> ${entry.date}</p>
                 <p><strong>Location:</strong> ${entry.location}</p>
                 <p><strong>Entry:</strong> ${entry.entry}</p>
-                <hr>
+                <hr> 
             `;
-            container.appendChild(entryDiv);
+            container.appendChild(entryDiv);//adding new html nodes under another html node
         });
     }
 
@@ -105,8 +105,7 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log('Entry added to array:', newEntry);
             console.log('Updated array:', arrayOfEntries);
 
-            // Store individual entry in localStorage (old method)
-            localStorage.setItem(name, JSON.stringify(newEntry));
+
 
             // Store in user's collection (new method)
             const updatedEntries = addEntryToUser(name, {
