@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Form functionality (only if form exists)
     const userForm = document.getElementById('userForm');
     if (userForm) {
-        userForm.addEventListener('submit', function (event) {
+        userForm.addEventListener('submit',async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
             event.preventDefault(); // prevent default form submission
 
             const form = new FormData(event.target);
@@ -92,15 +92,32 @@ document.addEventListener('DOMContentLoaded', function () {
             console.log("Entry:", entry);
             console.log("Image:", imageFile);
 
-            // Handle image file and create URL if exists
-            let imageUrl = null;
+            // // Handle image file and create URL if exists
+            // let imageUrl = null;
+            // if (imageFile && imageFile.size > 0) {
+            //     imageUrl = URL.createObjectURL(imageFile);
+            //     console.log("Created image URL:", imageUrl);
+            // }
+            
+            function base64(imageFile) {
+                return new Promise((resolve, reject) => {
+                    let reader = new FileReader();
+                    reader.onload = () => resolve(reader.result);
+                    reader.onerror = () => reject(new Error)
+                    reader.readAsDataURL(imageFile)
+                });
+            }
+            // Create and add entry to array with correct parameter order
+            let imageDataUrl = null;
             if (imageFile && imageFile.size > 0) {
-                imageUrl = URL.createObjectURL(imageFile);
-                console.log("Created image URL:", imageUrl);
+                try {
+                    imageDataUrl = await base64(imageFile);
+                } catch (error) {
+                    console.error(error);
+                }
             }
 
-            // Create and add entry to array with correct parameter order
-            const newEntry = createEntry(name, date, location, entry, imageUrl);
+            const newEntry = createEntry(name, date, location, entry, imageDataUrl);
             arrayOfEntries.push(newEntry);
             console.log('Entry added to array:', newEntry);
             console.log('Updated array:', arrayOfEntries);
@@ -112,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 date: date,
                 location: location,
                 entry: entry,
-                imageUrl: imageUrl,
+                imageUrl: imageDataUrl,
                 timestamp: new Date().toISOString()
             });
 
