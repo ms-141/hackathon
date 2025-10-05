@@ -151,11 +151,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 successMessage.textContent = 'Successful submission!'
                 successMessage.style.color = 'green';
                 successMessageContainer.appendChild(successMessage);
-
-                // Clear success message after 3 seconds
-                setTimeout(() => {
-                    successMessageContainer.innerHTML = '';
-                }, 3000);
             }
 
         });
