@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // Form functionality (only if form exists)
     const userForm = document.getElementById('userForm');
     if (userForm) {
-        userForm.addEventListener('submit',async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
+        userForm.addEventListener('submit', async function (event) { // pauses execution of function until awaited Promise is resolved or rejected
             event.preventDefault(); // prevent default form submission
 
             const form = new FormData(event.target);
@@ -98,12 +98,12 @@ document.addEventListener('DOMContentLoaded', function () {
             //     imageUrl = URL.createObjectURL(imageFile);
             //     console.log("Created image URL:", imageUrl);
             // }
-            
+
             function base64(imageFile) {
                 return new Promise((resolve, reject) => {
                     let reader = new FileReader();
                     reader.onload = () => resolve(reader.result);
-                    reader.onerror = () => reject(new Error("Failed to read image"))
+                    reader.onerror = () => reject(new Error)
                     reader.readAsDataURL(imageFile)
                 });
             }
@@ -196,10 +196,10 @@ document.addEventListener('DOMContentLoaded', function () {
                                 [...allUserEntries].forEach((entry, index) => {
                                     // Create a display element for each entry
                                     const entryDiv = document.createElement('div');
-                                    entryDiv.className = 'single-entry';
-                                    entryDiv.style.border = '1px solid #ccc';
-                                    entryDiv.style.margin = '10px 0';
-                                    entryDiv.style.padding = '10px';
+                                    // entryDiv.className = 'single-entry';
+                                    // entryDiv.style.border = '1px solid #ccc';
+                                    // entryDiv.style.margin = '10px 0';
+                                    entryDiv.style.padding = '20px';
 
                                     entryDiv.innerHTML = `
                                         <h4>Entry ${index + 1}</h4>
@@ -228,14 +228,20 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    // Global function to show all entries (can be called from button)
-    window.showAllEntries = function (userName) {
-        const entriesContainer = document.getElementsByClassName("userEntries")[0];
-        if (entriesContainer) {
-            entriesContainer.innerHTML = '';
-            displayUserEntries(userName, entriesContainer.id || 'userEntries');
-        }
-    }
+    // ===== CLEAR DATA ======
+    const clearButton = document.getElementById('clearButton');
+    clearButton.addEventListener('click', function () {
+        localStorage.clear();
+    })
+
+    // // Global function to show all entries (can be called from button)
+    // window.showAllEntries = function (userName) {
+    //     const entriesContainer = document.getElementsByClassName("userEntries")[0];
+    //     if (entriesContainer) {
+    //         entriesContainer.innerHTML = '';
+    //         displayUserEntries(userName, entriesContainer.id || 'userEntries');
+    //     }
+    // }
 
     // Initial logging
     console.log('Initial array of entries:', arrayOfEntries);
