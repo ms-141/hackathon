@@ -3,6 +3,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+
 }
 
 #nav {
@@ -30,9 +31,13 @@ body {
 }
 
 #clearButton {
-    padding: 30px;
-    background-color: blanchedalmond;
+    margin: 30px;
+    background-color: rgb(159, 173, 230);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+#filter {
+    width: 220px;
 }
