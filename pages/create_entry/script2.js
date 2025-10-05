@@ -7,9 +7,11 @@
       const reader = new FileReader();
       reader.onload = function(e) {
         imagePreview.src = e.target.result;
+        imagePreview.style.display = 'block';
       }
       reader.readAsDataURL(file);
     } else {
       imagePreview.src = "";
+      imagePreview.style.display = 'none';
     }
   });
