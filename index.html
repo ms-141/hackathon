@@ -25,16 +25,17 @@
                 <input type="text" id="location" name="location">
                 <br>
                 <label for="entry">Entry:</label>
-                <input type="text" id="entry" name="entry"> 
+                <textarea type="text" id="entry" name="entry" placeholder="Enter your journal entry..."></textarea> 
                 <br>
                 <label for="imageUpload">Upload an image:</label>
                 <input type="file" id="imageUpload" name="myImage" accept="image/*">
                 <br><br>
                 <input type="submit" value="Submit">
+                <div id="successMessageContainer"></div>
             </form>
 
             <!-- image preview -->
-            <img id="imagePreview" src="#" alt="Preview of uploaded image">
+            <img style="display: none;" id="imagePreview" src="#" alt="Preview of uploaded image">
 
         </div>
     </div>

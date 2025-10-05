@@ -130,19 +130,26 @@ document.addEventListener('DOMContentLoaded', function () {
                 location: location,
                 entry: entry,
                 imageUrl: imageDataUrl,
-                timestamp: new Date().toISOString()
+                timestamp: new Date().toISOString() //turns date into string format
             });
 
             console.log('All entries for this user:', updatedEntries);
 
             // Handle image preview if file exists
-            if (imageUrl) {
+            if (imageDataUrl) {
                 const imagePreview = document.getElementById('imagePreview')
                 if (imagePreview) {
-                    imagePreview.src = imageUrl;
+                    imagePreview.src = imageDataUrl; // Use imageDataUrl instead of imageUrl
                     imagePreview.style.display = 'block';
                 }
             }
+
+            const successMessageContainer = document.getElementById('successMessageContainer');
+            const successMessage = document.createElement('p')
+            successMessage.textContent = 'Successful submission!'
+            successMessage.style.color = 'green';
+            successMessageContainer.appendChild(successMessage);
+
         });
     }
 
