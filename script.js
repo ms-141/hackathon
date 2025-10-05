@@ -98,22 +98,22 @@ document.addEventListener('DOMContentLoaded', function () {
             //     imageUrl = URL.createObjectURL(imageFile);
             //     console.log("Created image URL:", imageUrl);
             // }
-            
+            // Source for converting a file to base 64: https://utahedu.devcamp.com/dissecting-react-js/guide/converting-image-files-base64-strings
             function base64(imageFile) {
                 return new Promise((resolve, reject) => {
                     let reader = new FileReader();
-                    reader.onload = () => resolve(reader.result);
-                    reader.onerror = () => reject(new Error("Failed to read image"))
-                    reader.readAsDataURL(imageFile)
+                    reader.onload = () => resolve(reader.result); // when file is successfully read
+                    reader.onerror = () => reject(new Error) // failed to read
+                    reader.readAsDataURL(imageFile) // reads file and converts to base 64
                 });
             }
             // Create and add entry to array with correct parameter order
             let imageDataUrl = null;
             if (imageFile && imageFile.size > 0) {
-                try {
-                    imageDataUrl = await base64(imageFile);
+                try { // protected zone to run code so crashes dont affect entire program
+                    imageDataUrl = await base64(imageFile); // waits for promise to resolve and pauses async function
                 } catch (error) {
-                    console.error(error);
+                    console.error(error); // error needs to go somewhere
                 }
             }
 
