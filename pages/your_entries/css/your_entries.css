@@ -96,8 +96,8 @@ body {
   width: 561px;
   color: rgba(0,0,0,1);
   position: absolute;
-  top: 16px;
-  left: 439px;
+  top: 27px;
+  left: 472px;
   font-family: Bell MT;
   font-weight: Regular;
   font-size: 96px;
@@ -112,7 +112,7 @@ body {
   opacity: 1;
   position: absolute;
   top: 163px;
-  left: 469px;
+  left: 426px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -156,8 +156,8 @@ body {
   background: rgba(100,69,54,1);
   opacity: 1;
   position: absolute;
-  top: 163px;
-  left: 820px;
+  top: 164px;
+  left: 885px;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
   border-bottom-left-radius: 6px;
@@ -196,8 +196,8 @@ body {
   position: relative;
   font-size: 25px;
   font-family: Bell MT;
-  top: 155px;
-  left: -30px;
+  top: 213px;
+  left: 7px;
   z-index: 1000; /* higher than .v22_67 or .v25_287 */
   padding: 30px;
   display: flex;
@@ -209,7 +209,7 @@ body {
     position: absolute;
     font-size: 15px;
     top: 290px;
-    left: 500px;
+    left: 350px;
     padding: 30px;
     z-index: 1000;
     display: flex;
