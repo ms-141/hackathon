@@ -5,7 +5,31 @@ body {
     min-height: 100vh;
 }
 
-div {
+#nav {
+    padding: 30px;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userInfo {
+    padding: 30px;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.userEntries {
+    padding: 30px;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#clearButton {
     padding: 30px;
     background-color: blanchedalmond;
     display: flex;

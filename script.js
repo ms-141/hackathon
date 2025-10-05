@@ -98,15 +98,6 @@ document.addEventListener('DOMContentLoaded', function () {
             //     imageUrl = URL.createObjectURL(imageFile);
             //     console.log("Created image URL:", imageUrl);
             // }
-<<<<<<< HEAD
-            // Source for converting a file to base 64: https://utahedu.devcamp.com/dissecting-react-js/guide/converting-image-files-base64-strings
-            function base64(imageFile) {
-                return new Promise((resolve, reject) => {
-                    let reader = new FileReader();
-                    reader.onload = () => resolve(reader.result); // when file is successfully read
-                    reader.onerror = () => reject(new Error) // failed to read
-                    reader.readAsDataURL(imageFile) // reads file and converts to base 64
-=======
 
             function base64(imageFile) {
                 return new Promise((resolve, reject) => {
@@ -114,7 +105,6 @@ document.addEventListener('DOMContentLoaded', function () {
                     reader.onload = () => resolve(reader.result);
                     reader.onerror = () => reject(new Error)
                     reader.readAsDataURL(imageFile)
->>>>>>> 8932b4ede0b00f122f3ebf5966f142cb4e2509d3
                 });
             }
             // Create and add entry to array with correct parameter order
@@ -202,12 +192,12 @@ document.addEventListener('DOMContentLoaded', function () {
                             entriesContainer.innerHTML = '';
 
                             if (allUserEntries.length > 0) {
-                                // Use spread operator to iterate through all entries
+                                // spread operator to iterate through all entries in the array
                                 [...allUserEntries].forEach((entry, index) => {
                                     // Create a display element for each entry
                                     const entryDiv = document.createElement('div');
-                                    // entryDiv.className = 'single-entry';
-                                    // entryDiv.style.border = '1px solid #ccc';
+                                    entryDiv.className = 'single-entry';
+                                    entryDiv.style.border = '1px solid #00000000';
                                     // entryDiv.style.margin = '10px 0';
                                     entryDiv.style.padding = '20px';
 
